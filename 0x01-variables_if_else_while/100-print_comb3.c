@@ -13,7 +13,7 @@ int main(void)
 	int units;
 
 	while (tens < 10)
-	{	
+	{
 		units = tens + 1;
 		while (units < 10)
 		{
