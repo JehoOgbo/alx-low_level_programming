@@ -26,19 +26,20 @@ int main(void)
 			{
 				while (unitss < 10)
 				{
-					putchar(tens);
-					putchar(units);
+					putchar(tens + '0');
+					putchar(units + '0');
 					putchar(' ');
-					putchar(tenss);
-					putchar(unitss);
+					putchar(tenss + '0');
+					putchar(unitss + '0');
 
-					if (tens != 9 || units != 8 || tenss != 9 || unitss != 9)
+					if (tens < 10 || units < 9 || tenss < 10 || unitss < 10)
 					{
 						putchar(',');
 						putchar(' ');
 					}
 					unitss++;
 				}
+				units = 0;
 				tenss++;
 			}
 			units++;
