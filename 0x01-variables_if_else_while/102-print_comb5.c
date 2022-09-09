@@ -3,50 +3,34 @@
 /**
  * main - Entry point
  *
- * this program will output all possible combinations of
- * two two digit numbers
- *
  * Return: always 0 success
  */
 int main(void)
 {
-	int tens = 0;
-	int units;
-	int tenss;
-	int unitss;
+	int n = 48;
+	int a = 0;
+	int b;
+	int come = 44;
 
-	while (tens < 10)
+	while (a <= 99)
 	{
-		units = tens;
-		while (units < 10)
+		b = a + 1;
+		while (b <= 99)
 		{
-			tenss = tens;
-			unitss = units + 1;
-			while (tenss < 10)
+			putchar((a / 10) + n);
+			putchar((a % 10) + n);
+			putchar(32);
+			putchar((b / 10) + n);
+			putchar((b % 10) + n);
+			if (a != 98 || b != 99)
 			{
-				while (unitss < 10)
-				{
-					putchar(tens + '0');
-					putchar(units + '0');
-					putchar(' ');
-					putchar(tenss + '0');
-					putchar(unitss + '0');
-
-					if (tens < 10 || units < 9 || tenss < 10 || unitss < 10)
-					{
-						putchar(',');
-						putchar(' ');
-					}
-					unitss++;
-				}
-				units = 0;
-				tenss++;
+				putchar(come);
+				putchar(32);
 			}
-			units++;
+			b += 1;
 		}
-		tens++;
+		a += 1;
 	}
 	putchar('\n');
 	return (0);
 }
-
