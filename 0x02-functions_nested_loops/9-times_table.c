@@ -15,7 +15,7 @@ void times_table(void)
 	{
 		while (columns <= 9)
 		{
-			product = rows * column;
+			product = rows * columns;
 			tens = product / 10;
 			num = product % 10;
 
