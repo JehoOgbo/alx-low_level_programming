@@ -20,13 +20,13 @@ void times_table(void)
 			num = product % 10;
 
 			if (columns == 0)
-				putchar('0');
+				_putchar(product + '0');
 			else if (product < 10)
 			{
 				_putchar(',');
 				_putchar(' ');
 				_putchar(' ');
-				_putchar(num + '0');
+				_putchar(product + '0');
 			}
 			else
 			{
@@ -34,9 +34,11 @@ void times_table(void)
 				_putchar(' ');
 				_putchar(' ');
 				_putchar(tens + '0');
+				_putchar(num + '0');
 			}
 			++columns;
 		}
 		_putchar('\n');
 		++rows;
 	}
+}
