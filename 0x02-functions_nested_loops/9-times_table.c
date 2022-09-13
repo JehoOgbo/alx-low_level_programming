@@ -11,8 +11,10 @@ void times_table(void)
 {
 	int rows, columns, product, tens, num;
 
+	rows = 0;
 	while (rows <= 9)
 	{
+		columns = 0;
 		while (columns <= 9)
 		{
 			product = rows * columns;
