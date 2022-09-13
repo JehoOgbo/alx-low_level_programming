@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <ctype.h>
 /**
  * _islower - function
  *
@@ -9,13 +9,7 @@
  */
 int _islower(int c)
 {
-	char a;
-	int b;
-
-	a = c;
-	b = islower(a);
-
-	if (b != 0)
+	if (c >= 'a' && c <= 'z')
 		return (1);
 	else
 		return (0);
