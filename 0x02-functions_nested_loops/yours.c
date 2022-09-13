@@ -34,7 +34,6 @@ int main(void)
 			{
 				putchar(',');
 				putchar(' ');
-				putchar(' ');
 				putchar(tens + '0');
 				putchar(num + '0');
 			}
