@@ -3,6 +3,8 @@
 /**
  * _islower - function
  *
+ * @c: c is an ascii character
+ *
  * description: checks the input if lower case
  *
  * Return: 1 if lowercase else return 0
