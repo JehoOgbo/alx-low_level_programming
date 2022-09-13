@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
  * times_table - function
@@ -7,12 +7,14 @@
  *
  * Return: void
  */
-void times_table(void)
+int main(void)
 {
 	int rows, columns, product, tens, num;
 
+	rows = 0;
 	while (rows <= 9)
 	{
+		columns	 = 0;
 		while (columns <= 9)
 		{
 			product = rows * columns;
@@ -20,25 +22,26 @@ void times_table(void)
 			num = product % 10;
 
 			if (columns == 0)
-				_putchar('0');
+				putchar('0');
 			else if (product < 10)
 			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(product + '0');
+				putchar(',');
+				putchar(' ');
+				putchar(' ');
+				putchar(product + '0');
 			}
 			else
 			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(tens + '0');
-				_putchar(num + '0');
+				putchar(',');
+				putchar(' ');
+				putchar(' ');
+				putchar(tens + '0');
+				putchar(num + '0');
 			}
 			++columns;
 		}
-		_putchar('\n');
+		putchar('\n');
 		++rows;
 	}
+	return (0);
 }
