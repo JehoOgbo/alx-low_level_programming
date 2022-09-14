@@ -19,11 +19,15 @@ int main(void)
 	for (counter = 1; counter < 98; counter++)
 	{
 		sum = firnum + secnum;
+		if (sum < 0)
+			sum = sum * -1;
 		printf("%ld, ", sum);
 		firnum = secnum;
 		secnum = sum;
 	}
 	sum = firnum + secnum;
+	if (sum < 0)
+		sum = sum * -1;
 	printf("%ld\n", sum);
 	return (0);
 }
