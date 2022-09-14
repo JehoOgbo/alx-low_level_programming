@@ -10,9 +10,9 @@
 int main(void)
 {
 	long int sum, firnum, secnum;
-       	int counter;
+	int counter;
 
-	sum = 0; firnum = 0;
+	firnum = 0;
 	secnum = 1;
 	counter = 0;
 
