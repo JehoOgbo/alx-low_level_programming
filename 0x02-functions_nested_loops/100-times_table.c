@@ -10,7 +10,7 @@
  */
 void print_times_table(int n)
 {
-	int rows, columns, product, huns, tens, unit;
+	int rows, columns, product;
 
 	if ((n < 16) && (n > 0))
 	{
@@ -49,7 +49,7 @@ void print_times_table(int n)
 				}
 				columns++;
 			}
-			putchar('\n');
+			_putchar('\n');
 			rows++;
 		}
 	}
