@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	long int sum, firnum, secnum;
+	float sum, firnum, secnum;
 	int counter;
 
 	firnum = 0;
@@ -21,13 +21,13 @@ int main(void)
 		sum = firnum + secnum;
 		if (sum < 0)
 			sum = sum * -1;
-		printf("%ld, ", sum);
+		printf("%.0f, ", sum);
 		firnum = secnum;
 		secnum = sum;
 	}
 	sum = firnum + secnum;
 	if (sum < 0)
 		sum = sum * -1;
-	printf("%ld\n", sum);
+	printf("%.0f\n", sum);
 	return (0);
 }
