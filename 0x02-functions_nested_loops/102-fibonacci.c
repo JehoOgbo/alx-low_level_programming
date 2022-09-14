@@ -16,7 +16,7 @@ int main(void)
 	secnum = 1;
 	counter = 0;
 
-	for (counter = 1; counter < 51; counter++)
+	for (counter = 1; counter < 50; counter++)
 	{
 		sum = firnum + secnum;
 		printf("%ld, ", sum);
