@@ -10,9 +10,9 @@
  */
 int main(void)
 {
-	int n = 5, rows, columns, product, huns, tens, unit;
+	int n = 0, rows, columns, product, huns, tens, unit;
 
-	if ((n < 16) && (n > 0))
+	if ((n < 16) && (n >= 0))
 	{
 		rows = 0;
 		while (rows <= n)
@@ -45,7 +45,7 @@ int main(void)
 					putchar(' ');
 					putchar((product / 100) + '0');
 					putchar((product /10) % 10 + '0');
-					putchar((product % 100) + '0');
+					putchar((product % 10) + '0');
 				}
 				columns++;
 			}
