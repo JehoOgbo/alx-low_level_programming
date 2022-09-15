@@ -9,15 +9,30 @@
  */
 void more_numbers(void)
 {
-	int num;
-	int count;
+	int num, line, repeat, limit;
 
-	for (count = 0; count < 10; count++)
+	n = '0';
+	repeat = 0;
+	limit = '9';
+
+	for (line = 0; line < 10; line++)
 	{
-		for (num = 0; num < 15; num++)
+		while (repeat < 2)
 		{
-			_putchar(num);
+			while (n <= limit)
+			{
+				if (limit == '4')
+					_putchar('1');
+				_putchar(num);
+				n++;
+			}
+			repeat++;
+			limit = '4';
+			n = '0';
 		}
 		_putchar('\n');
+		repeat = 0;
+		n = '0';
+		limit = '9';
 	}
 }
