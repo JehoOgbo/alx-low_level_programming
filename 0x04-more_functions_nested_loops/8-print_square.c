@@ -1,31 +1,35 @@
 #include "main.h"
 
 /**
- * print_square - function
- *
- * @size: is an operand number
- *
- * Return: void
+ * print_square - prints a square
+ * @size: print size
+ * Return: Always 0
  */
+
 void print_square(int size)
 {
-	int row, column;
+
+	int i;
+	int k;
 
 	if (size > 0)
 	{
-		row = 0;
-		while (row < size)
+		for (i = 0; i < size; i++)
 		{
-			column = 0;
-			while (column < size)
+
+			for (k = 0; k < size; k++)
 			{
-				_putchar('#');
-				++column;
+				_putchar (35);
 			}
-			_putchar('\n');
-			++row;
+			_putchar ('\n');
+
 		}
+
 	}
+
 	else
-		_putchar('\n');
+	{
+		_putchar ('\n');
+	}
+
 }
