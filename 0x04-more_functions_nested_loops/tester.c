@@ -1,31 +1,19 @@
 #include <stdio.h>
 
 /**
- * print_triangle - function
- *
- * print triangle using '#'
- * @size: is a numeric operand
+ * print_numbers - funtion
  *
  * Return: void
  */
 int main(void)
 {
-	int spaces, lines, size, hash;
+	int num;
 
-	size = 10;
-
-	lines = 1;
-	while (lines < size)
+	num = 0;
+	while (num < 10)
 	{
-		spaces = size - 1;
-		while (spaces > lines)
-		{
-			putchar(' ');
-			spaces--;
-		}
-		for (hash = 0; hash < lines; hash++)
-			putchar('#');
-		putchar('\n');
-		lines++;
+		putchar(num + '0');
+		++num;
 	}
+	putchar('\n');
 }
