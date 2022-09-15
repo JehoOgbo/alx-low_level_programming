@@ -10,26 +10,20 @@
  */
 void print_triangle(int size)
 {
-	int i = 1, ii;
+	int spaces, lines, hash;
 
-	while (i <= size && size > 0)
+	lines = 1;
+	while (lines < size)
 	{
-		ii = 0;
-		while (ii < size - 1)
+		spaces = size - 1;
+		while (spaces > lines)
 		{
 			_putchar(' ');
-			ii++;
+			spaces--;
 		}
-		ii = 0;
-		while (ii < i)
-		{
+		for (hash = 0; hash < lines; hash++)
 			_putchar('#');
-			ii++;
-		}
-
 		_putchar('\n');
-		i++;
+		lines++;
 	}
-	if (i == 1)
-		_putchar('\n');
 }
