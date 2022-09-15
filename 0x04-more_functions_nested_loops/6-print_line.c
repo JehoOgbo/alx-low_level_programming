@@ -1,20 +1,29 @@
 #include "main.h"
 
 /**
- * print_line - function
- *
- * @n: is an operand number
- * draw a straight line
- *
- * Return: void
+ * print_line - draws a straight line in the terminal
+ * @n: print int
+ * Return: Always 0
  */
 void print_line(int n)
 {
-	int b;
 
-	for (b = 0; b < n && n > 0; b++)
+
+	int i;
+
+	if (n > 0)
 	{
-		_putchar('_');
+		for (i = 0; i < n; i++)
+		{
+			_putchar (95);
+		}
+
+		_putchar ('\n');
 	}
-	_putchar('\n');
+
+	else
+	{
+		_putchar ('\n');
+	}
+
 }

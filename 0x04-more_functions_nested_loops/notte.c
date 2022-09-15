@@ -1,31 +1,31 @@
 #include "main.h"
 
 /**
- * print_square - function
+ * more_numbers - function
  *
- * @size: is an operand number
+ * prints numbers 1 to 14 10 times
  *
  * Return: void
  */
-void print_square(int size)
+void more_numbers(void)
 {
-	int row, column;
+	int num;
+	char list, sec;
 
-	if (size > 0)
+	for (num = 0; num < 10; num++)
 	{
-		row = 0;
-		while (row < size)
+		list = 0;
+		while (list < 15)
 		{
-			column = 0;
-			while (column < size)
+			sec = list;
+			if (list > 9)
 			{
-				_putchar('#');
-				++column;
+				sec = list % 10;
+				_putchar('1');
 			}
-			_putchar('\n');
-			++row;
+			putchar(sec + '0');
+			list++;
 		}
-	}
-	else
 		_putchar('\n');
+	}
 }
