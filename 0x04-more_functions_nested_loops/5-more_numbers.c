@@ -13,7 +13,8 @@ void more_numbers(void)
 
 	for (num = 0; num < 10; num++)
 	{
-		for(list = 0; list < 15; list++)
+		list = 0;
+		while (list < 15)
 		{
 			if (list < 10)
 				_putchar(list + '0');
@@ -24,6 +25,7 @@ void more_numbers(void)
 				_putchar(firs + '0');
 				_putchar(sec + '0');
 			}
+			list++;
 		}
 		_putchar('\n');
 	}
