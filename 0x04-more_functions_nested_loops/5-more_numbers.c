@@ -16,15 +16,13 @@ void more_numbers(void)
 		list = 0;
 		while (list < 15)
 		{
-			if (list < 10)
-				_putchar(list + '0');
-			else
+			sec = list;
+			if (list > 9)
 			{
-				firs = 1;
 				sec = list % 10;
-				_putchar(firs + '0');
-				_putchar(sec + '0');
+				_putchar('1');
 			}
+			putchar(sec + '0');
 			list++;
 		}
 		_putchar('\n');
