@@ -9,7 +9,8 @@
  */
 void more_numbers(void)
 {
-	int num, list, firs, sec;
+	int num;
+	char list, sec;
 
 	for (num = 0; num < 10; num++)
 	{
