@@ -1,19 +1,31 @@
 #include <stdio.h>
 
 /**
- * print_numbers - funtion
+ * more_numbers - function
+ *
+ * prints numbers 1 to 14 10 times
  *
  * Return: void
  */
 int main(void)
 {
-	int num;
+	int num, list, firs, sec;
 
-	num = 0;
-	while (num < 10)
+	for (num = 0; num < 10; num++)
 	{
-		putchar(num + '0');
-		++num;
+		for(list = 0; list < 15; list++)
+		{
+			if (list < 10)
+				putchar(list + '0');
+			else
+			{
+				firs = 1;
+				sec = list % 10;
+				putchar(firs + '0');
+				putchar(sec + '0');
+			}
+		}
+		putchar('\n');
 	}
-	putchar('\n');
+	return (0);
 }

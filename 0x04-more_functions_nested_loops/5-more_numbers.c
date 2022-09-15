@@ -9,30 +9,22 @@
  */
 void more_numbers(void)
 {
-	int num, line, repeat, limit;
+	int num, list, firs, sec;
 
-	n = '0';
-	repeat = 0;
-	limit = '9';
-
-	for (line = 0; line < 10; line++)
+	for (num = 0; num < 10; num++)
 	{
-		while (repeat < 2)
+		for(list = 0; list < 15; list++)
 		{
-			while (n <= limit)
+			if (list < 10)
+				_putchar(list + '0');
+			else
 			{
-				if (limit == '4')
-					_putchar('1');
-				_putchar(num);
-				n++;
+				firs = 1;
+				sec = list % 10;
+				_putchar(firs + '0');
+				_putchar(sec + '0');
 			}
-			repeat++;
-			limit = '4';
-			n = '0';
 		}
 		_putchar('\n');
-		repeat = 0;
-		n = '0';
-		limit = '9';
 	}
 }
