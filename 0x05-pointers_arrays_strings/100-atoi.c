@@ -9,8 +9,8 @@
  */
 int _atoi(char *s)
 {
-	int num;
+	long long num;
 
-	num = atoi(s);
+	num = atoll(s);
 	return (num);
 }
