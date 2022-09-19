@@ -9,7 +9,7 @@
  */
 int _atoi(char *s)
 {
-	long long num;
+	long long int num;
 
 	num = atoll(s);
 	return (num);
