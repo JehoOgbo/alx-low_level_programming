@@ -17,7 +17,7 @@ void puts2(char *str)
 	n = 0;
 	while (n < a)
 	{
-		if ( n % 2 == 0)
+		if (n % 2 == 0)
 			putchar(str[n]);
 	}
 	putchar('\n');
