@@ -10,8 +10,8 @@
 void rev_string(char *s)
 {
 	int n;
-	int a, b, c, stlen;
-	int convert_all;
+	int a, c, stlen;
+	char b;
 	char str[1000];
 
 	a = 0;
