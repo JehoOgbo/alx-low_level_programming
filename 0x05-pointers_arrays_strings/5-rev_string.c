@@ -10,16 +10,24 @@
 void rev_string(char *s)
 {
 	int n;
-	int a;
+	int a, b, c, stlen;
+	int convert_all;
 	char str[1000];
 
 	a = 0;
 	n = strlen(s) - 1;
 	while (n >= 0)
 	{
-		str[a] = s[n];
+		b = s[n];
+		str[a] = b;
 		--n;
 		++a;
 	}
-	*s = *str;
+	c = 0;
+	stlen = strlen(s);
+	while (c < stlen)
+	{
+		*(s + c) = *(str + c);
+		c++;
+	}
 }

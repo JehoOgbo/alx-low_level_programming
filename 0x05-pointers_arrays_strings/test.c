@@ -1,25 +1,39 @@
 #include "main.h"
+#include <string.h>
 #include <stdio.h>
 
 /**
- * main - function to fint the length of a string
+ * rev_string - function to reverse a string
  *
- * @s: is an ascii character
- * Return: 0
+ * @s: input string
+ * Return: void
  */
-int main()
+int main(void)
 {
+	int n;
 	int a;
-	int n = 0;
-	char s[] = "tree";
+	int c;
+	int d;
+	char b;
+	char s[] = "Today is monday";
+	char str[1000];
 
 	a = 0;
-	while (s != '\0')
+	n = strlen(s) - 1;
+	while (n >= 0)
 	{
-		s[n]++;
+		b = s[n];
+		str[a] = b;
+		--n;
 		++a;
 	}
-	printf("%d", a);
-
+	c = 0;
+	d = strlen(s);
+	while (c < d)
+	{
+		*(s + c) = *(str + c);
+		c++;
+	}
+	printf("%c, %c, %c", s[0], s[6], s[7]);
 	return (0);
 }
