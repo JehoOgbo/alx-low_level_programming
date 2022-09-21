@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * _strcmp - check if two strings are the same
@@ -12,7 +13,7 @@ int _strcmp(char *s1, char *s2)
 {
 	int a;
 
-	a = strcmp(char s1, char s2);
+	a = strcmp(s1, s2);
 
 	return (a);
 }

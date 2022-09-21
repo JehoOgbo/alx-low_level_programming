@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * leet - encoding function. Encodes a, e, o, t, l
@@ -16,7 +17,7 @@ char *leet(char *c)
 	char s3[] = "43071";
 
 	a = 0;
-	while (a != '\0')
+	while (a < strlen(c))
 	{
 		for (b = 0; b < 5; b++)
 		{
@@ -29,3 +30,4 @@ char *leet(char *c)
 		a++;
 	}
 	return (c);
+}

@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * string_toupper - converts lowercase to uooercase
@@ -6,14 +7,16 @@
  * @c: input string
  * Return: converted string
  */
-char string_toupper(char *c)
+char *string_toupper(char *c)
 {
-	int a;
+	int a, f, g;
 	char b, e;
 	char str[100000];
 
+
+	g = strlen(c);
 	a = 0;
-	while (a != '\0')
+	while (a < g)
 	{
 		e = c[a];
 		if (e >= 'a' && e <= 'z')
@@ -23,10 +26,11 @@ char string_toupper(char *c)
 		str[a] = b;
 		a++;
 	}
-	while (f != '\0')
+	f = 0;
+	while (f < g)
 	{
 		*(c + f) = *(str + f);
 		f++;
 	}
-	return (str);
+	return (c);
 }
