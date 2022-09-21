@@ -12,12 +12,14 @@ char *leet(char *c)
 {
 	int a;
 	int b;
+	int d;
 	char s1[] = "aeotl";
 	char S2[] = "AEOTL";
 	char s3[] = "43071";
 
 	a = 0;
-	while (a < strlen(c))
+	d = strlen(c);
+	while (a < d)
 	{
 		for (b = 0; b < 5; b++)
 		{
