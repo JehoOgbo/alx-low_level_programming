@@ -9,8 +9,5 @@ char *cap_string(char *);
 char *leet(char *);
 char *rot13(char *);
 void print_number(int n);
-<<<<<<< HEAD
-=======
 char *infinite_add(char *n1, char *n2, char *r, int size_r);
 void print_buffer(char *b, int size);
->>>>>>> 7f799ac88f25f39c47e1e64ea2ed446a3d3464fe
