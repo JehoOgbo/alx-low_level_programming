@@ -4,7 +4,7 @@
 /**
  * leet - encoding function. Encodes a, e, o, t, l
  *
- * @c - array of charcters
+ * @c: array of charcters
  *
  * Return: 0
  */
