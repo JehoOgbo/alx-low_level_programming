@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print-number - function that prints numbers
+ * print_number - function that prints numbers
  *
  * @n: number to be printed
  *
@@ -9,7 +9,7 @@
  */
 void print_number(int n)
 {
-	int m, d, c, b;
+	int m, e, d, c, b;
 
 	if (n < 0)
 	{
@@ -19,11 +19,20 @@ void print_number(int n)
 	else
 		m = n;
 
+	e = m / 10000;
 	d = m / 1000;
 	c = m / 100;
 	b = m / 10;
 
-	if (d > 0)	/* printing number if it is four digit */
+	if (e > 0)
+	{
+		_putchar(e + '0');
+		_putchar(((m / 1000) % 10) + '0');
+		_putchar(((m / 100) % 10) + '0');
+		_putchar(((m / 10) % 10) + '0');
+		_putchar((m % 10) + '0');
+	}
+	else if (d > 0)		/* printing number if it is four digit */
 	{
 		_putchar(d + '0');
 		_putchar(((m / 100) % 10) + '0');
