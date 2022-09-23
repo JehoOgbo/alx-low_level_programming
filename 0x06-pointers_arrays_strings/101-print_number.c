@@ -18,7 +18,10 @@ void print_number(int n)
 	}
 	else
 		m = n;
-	e = m / 10000; d = m / 1000; c = m / 100; b = m / 10;
+	e = m / 10000;
+	d = m / 1000;
+	c = m / 100;
+	b = m / 10;
 	if (e > 0)
 	{
 		_putchar(e + '0');
