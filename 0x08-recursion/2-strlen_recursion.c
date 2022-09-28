@@ -5,12 +5,9 @@
  * @c: ascii character
  * Return: 1
  */
-int is_char(char c)
+int is_char(void)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	else
-		return (0);
+	return (1);
 }
 
 /**
@@ -23,5 +20,5 @@ int _strlen_recursion(char *s)
 {
 	if (*s == '\0')
 		return (0);
-	return (is_char(s[0]) + _strlen_recursion(s + 1));
+	return (is_char() + _strlen_recursion(s + 1));
 }
