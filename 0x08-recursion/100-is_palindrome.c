@@ -8,7 +8,7 @@
  */
 int len(char *s)		/* recursive function to get the length of the string */
 {
-	if (*s = '\0')
+	if (*s == '\0')
 		return (0);
 	return (1 + len(s + 1));
 }
@@ -30,7 +30,7 @@ int _strcmp(char *s, int i, int j)		/* function doing the actual comparison */
 	else if (i == j - 1 && s[i] == s[j])		/* checking both middle characters in even-length strings */
 		return (1);
 	else		/* continues running of the function if the middle is not yet reached */
-		return (compare(s, i + 1, j - 1));
+		return (_strcmp(s, i + 1, j - 1));
 }
 
 /**
@@ -50,5 +50,5 @@ int is_palindrome(char *s)
 	if (length == 0 || length == 1)		/* checks if the string is empty or contains only one character */
 		return (1);
 	else
-		return (compare(s, i, j));		/* sends string into compare funtion: Recursive call */
+		return (_strcmp(s, i, j));		/* sends string into compare funtion: Recursive call */
 }
