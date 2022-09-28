@@ -14,7 +14,7 @@ int sqrt_evaluate(int i, int n)
 		return (i);
 	else if (i * i > n)	/* return -1 since n is not a perfect square */
 		return (-1);
-	return (0 + sqrt_evaluate(i + 1, n);
+	return (0 + sqrt_evaluate(i + 1, n));
 }
 
 /**
