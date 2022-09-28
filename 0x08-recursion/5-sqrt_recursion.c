@@ -10,12 +10,11 @@
 
 int sqrt_evaluate(int i, int n)
 {
-	if ((i * i) < n)	/* call function again if i * i < n */
-		sqrt_evaluate(i + 1, n);
-	else if (i * i == n)	/* condition base */
+	if (i * i == n)	/* condition base */
 		return (i);
-	else	/* return -1 since n is not a perfect square */
+	else if (i * i > n)	/* return -1 since n is not a perfect square */
 		return (-1);
+	return (0 + sqrt_evaluate(i + 1, n);
 }
 
 /**
