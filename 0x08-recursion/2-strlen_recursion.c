@@ -5,7 +5,7 @@
  * @c: ascii character
  * Return: 1
  */
-int is_char(void)
+int is_char(char c)
 {
 	if (c >= 0 && <= 127)
 		return (1);
