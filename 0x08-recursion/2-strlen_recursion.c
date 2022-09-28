@@ -7,7 +7,10 @@
  */
 int is_char(void)
 {
-	return (1);
+	if (c >= 0 && <= 127)
+		return (1);
+	else
+		return (0);
 }
 
 /**
