@@ -2,8 +2,7 @@
 
 /**
  * is_char - returns 1 for character input
- * @c: ascii character
- * Return: 1
+ * Return: void
  */
 int is_char(void)
 {
