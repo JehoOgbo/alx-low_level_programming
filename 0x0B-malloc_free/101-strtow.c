@@ -10,12 +10,17 @@
  */
 int count_word(char *s)
 {
-	int i, w = 0;
+	int i, w = 0, onoff = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		if (s[i] == ' ')
-			w++;
+			onoff = 0;
+		else if (onoff == 0)
+		{
+			onoff = 1;
+		      	w++;
+		}
 	}
 	return (w);
 }
