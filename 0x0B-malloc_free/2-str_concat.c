@@ -15,31 +15,24 @@ char *str_concat(char *s1, char *s2)
 	char *ptr;
 	int len1, len2, len, i, j;
 
+	if (s1 == NULL)
+		s1 = "\0";
+	if (s2 == NULL)
+		s2 = "\0";
+
 	len1 = strlen(s1);
 	len2 = strlen(s2);
 	len = len1 + len2;
-	ptr = malloc((len + 1) * sizeof(char));
+	ptr = malloc(len * sizeof(char) + 1);
 	if (ptr == NULL)
 		return (NULL);
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-	/*ptr = s1;*/
-	i = 0;
-	while ( i <= len1)
+	for (i = 0; i <= len; i++)
 	{
-		ptr[i] = s1[i];
-		i++;
+		if (i < len1)
+			ptr[i] = s1[i];
+		else
+			ptr[i] = s2[i - len1];
 	}
-	j = 0;
-	while (j <= len2)
-	{
-		ptr[i] = s2[j];
-		++j;
-		++i;
-	}
-
 	ptr[i] = '\0';
 	return (ptr);
 }
