@@ -19,7 +19,7 @@ int count_word(char *s)
 		else if (onoff == 0)
 		{
 			onoff = 1;
-		      	w++;
+			w++;
 		}
 	}
 	return (w);
