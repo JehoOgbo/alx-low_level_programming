@@ -28,7 +28,7 @@ int only_digit(char *s)
  * Return: 0 if success
  * exit with a status of 98 if failure
  */
-int main(unsigned int argc, char **argv)
+int main(int argc, char **argv)
 {
 	char fstr[] = "Error";
 	int i, a = strlen(fstr), b, c;
@@ -49,4 +49,5 @@ int main(unsigned int argc, char **argv)
 	}
 	product = d * e;
 	printf("%d\n", product);
+	return (0);
 }
