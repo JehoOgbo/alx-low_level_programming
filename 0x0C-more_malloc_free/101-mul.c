@@ -7,7 +7,7 @@
 /**
  * only_digit - checks if a string is composed of only numbers
  *
- * @str: input string to be checked
+ * @s: input string to be checked
  * Return: 0 or 1
  */
 int only_digit(char *s)
@@ -15,7 +15,7 @@ int only_digit(char *s)
 	while (*s)
 	{
 		if (isdigit(*s++) == 0)
-			return 0;
+			return (0);
 	}
 	return (1);
 }
