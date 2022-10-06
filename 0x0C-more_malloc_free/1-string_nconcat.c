@@ -29,11 +29,20 @@ int _strlen(char *str)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *nconcat;
-	int len, i, sum;
+	int len1, len2, i, sum;
 
-	len = _strlen(s1);
+	if (s1 == NULL)
+		s1 == "";
+	if (s2 == NULL)
+		s2 == "";
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	if (n >= len2)
+		n = len2;
 	sum = len + n;
 	nconcat = malloc(len + n + 1);
+	if (nconcat == NULL)
+		return (NULL);
 	for (i = 0; i < sum; ++i)
 	{
 		if (i < len)
