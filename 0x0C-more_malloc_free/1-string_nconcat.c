@@ -7,9 +7,9 @@
  * @str: string to be checked
  * Return: length of a string
  */
-int _strlen(char *str)
+unsigned int _strlen(char *str)
 {
-	int i;
+	unsigned int i;
 
 	for (i = 0; str[i]; ++i)
 		;
@@ -29,26 +29,26 @@ int _strlen(char *str)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *nconcat;
-	int len1, len2, i, sum;
+	unsigned int len1, len2, i, sum;
 
 	if (s1 == NULL)
-		s1 == "";
+		s1 = "";
 	if (s2 == NULL)
-		s2 == "";
+		s2 = "";
 	len1 = _strlen(s1);
 	len2 = _strlen(s2);
 	if (n >= len2)
 		n = len2;
-	sum = len + n;
-	nconcat = malloc(len + n + 1);
+	sum = len1 + n;
+	nconcat = malloc(len1 + n + 1);
 	if (nconcat == NULL)
 		return (NULL);
 	for (i = 0; i < sum; ++i)
 	{
-		if (i < len)
+		if (i < len1)
 			nconcat[i] = s1[i];
-		else if (i >= len)
-			nconcat[i] = s2[i - len];
+		else if (i >= len1)
+			nconcat[i] = s2[i - len1];
 	}
 	nconcat[i] = '\0';
 	return (nconcat);
