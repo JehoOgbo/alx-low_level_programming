@@ -73,25 +73,26 @@ char *itoa(long int n, char str[])
  */
 int main(int argc, char **argv)
 {
-	char fstr[] = "Error";
-	int i, a = strlen(fstr), b, c;
+	/*char fstr[] = "Error";*/
+	int b, c;
 	unsigned long product, d, e;
-	/* char *ptr = 0, *f;*/
 
 	if (argc != 3)
 	{
-		for (i = 0; i < a; ++i)
-			_putchar(fstr[i]);
-		_putchar('\n');
+		/*for (i = 0; i < a; ++i)*/
+			/*_putchar(fstr[i]);*/
+		/*_putchar('\n');*/
+		printf("Error\n");
 		exit(98);
 	}
 	b = only_digit(argv[1]);
 	c = only_digit(argv[2]);
 	if (b == 0 || c == 0)
 	{
-		for (i = 0; i < a; ++i)
-			_putchar(fstr[i]);
-		_putchar('\n');
+		/*for (i = 0; i < a; ++i)*/
+			/*_putchar(fstr[i]);*/
+		/*_putchar('\n');*/
+		printf("Error\n");
 		exit(98);
 	}
 	else if (b && c)
@@ -100,11 +101,6 @@ int main(int argc, char **argv)
 		e = atoi(argv[2]);
 	}
 	product = d * e;
-	/* memset(*s, 0, 1); */
-	/* f = itoa(product, ptr); */
-	/* for (i = 0; f[i]; i++)*/
-		/*_putchar(f[i]); */
-	/*_putchar('\n');*/
 	printf("%lu\n", product);
 	return (0);
 }
