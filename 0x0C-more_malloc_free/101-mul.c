@@ -47,7 +47,7 @@ void reverse(char s[])
  */
 char *itoa(long int n, char str[])
 {
-	int i, sign;
+	int i, sign = n;
 
 	/*if ((sign = n) < 0)	 record sign */
 		n = -n;		/* make n positive */
