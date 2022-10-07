@@ -75,7 +75,7 @@ int main(int argc, char **argv)
 {
 	char fstr[] = "Error";
 	int i, a = strlen(fstr), b, c;
-	long int product, d, e;
+	double product, d, e;
 	/* char *ptr = 0, *f;*/
 
 	if (argc != 3)
@@ -105,6 +105,6 @@ int main(int argc, char **argv)
 	/* for (i = 0; f[i]; i++)*/
 		/*_putchar(f[i]); */
 	/*_putchar('\n');*/
-	printf("%ld\n", product);
+	printf("%.0f\n", product);
 	return (0);
 }
