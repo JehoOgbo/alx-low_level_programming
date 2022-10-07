@@ -12,10 +12,15 @@
  */
 int only_digit(char *s)
 {
-	while (*s)
+	int firstnum = 0;
+
+	if (s[firstnum] == '-')
+		firstnum = 1;
+	while (s[firstnum])
 	{
-		if (isdigit(*s++) == 0)
+		if (isdigit(s[firstnum]) == 0)
 			return (0);
+		firstnum++;
 	}
 	return (1);
 }
