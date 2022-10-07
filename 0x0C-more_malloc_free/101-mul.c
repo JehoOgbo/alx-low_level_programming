@@ -97,8 +97,8 @@ int main(int argc, char **argv)
 	}
 	else if (b && c)
 	{
-		d = atoi(argv[1]);
-		e = atoi(argv[2]);
+		d = atol(argv[1]);
+		e = atol(argv[2]);
 	}
 	product = d * e;
 	printf("%lu\n", product);
