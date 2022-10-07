@@ -75,7 +75,7 @@ int main(int argc, char **argv)
 {
 	/*char fstr[] = "Error";*/
 	int b, c;
-	unsigned long product, d, e;
+	double product, d, e;
 
 	if (argc != 3)
 	{
@@ -97,10 +97,10 @@ int main(int argc, char **argv)
 	}
 	else if (b && c)
 	{
-		d = atol(argv[1]);
-		e = atol(argv[2]);
+		d = atof(argv[1]);
+		e = atof(argv[2]);
 	}
 	product = d * e;
-	printf("%lu\n", product);
+	printf("%.0f\n", product);
 	return (0);
 }
