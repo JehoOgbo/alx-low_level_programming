@@ -42,19 +42,19 @@ void reverse(char s[])
  * itoa - converts an  integer/number to an alphabet
  *
  * @n: number to be converted
- * @s: string array which alphabets are to be stored
+ * @str: string array which alphabets are to be stored
  * Return: void
  */
 char *itoa(long int n, char str[])
 {
 	int i, sign;
 
-	if ((sign = n) < 0)	/* record sign */
+	/*if ((sign = n) < 0)	 record sign */
 		n = -n;		/* make n positive */
 	i = 0;
 	do {	/* generate digits in reverse order */
 		str[i++] = n % 10 + '0';/* get next digit */
-	}while ((n /= 10) > 0);		/* delete it */
+	} while ((n /= 10) > 0);	/* delete it */
 	if (sign < 0)
 		str[i++] = '-';
 	str[i] = '\0';
