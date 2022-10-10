@@ -1,14 +1,10 @@
 #ifndef FUNCTION_LIKE_MACRO_H
 #define FUNCTION_LIKE_MACRO_H
 
-int ABS(int x)	/* macro to find absolute value */
-{
-	if(x < 0)	/* return only positive values */
-	{
-		x = -1 * x;
-		return (x);
-	}
-	return (x);
-}
+#ifndef ABS
+#define ABS(x) ((x) < (0) ? (x) * (-1) : (x))
+#endif /* ABS */
 
-#endif /*FUNCTION_LIKE_MACRO_H*/
+typedef int make_compiler_happy;
+
+#endif /* FUNCTION_LIKE_MACRO_H */

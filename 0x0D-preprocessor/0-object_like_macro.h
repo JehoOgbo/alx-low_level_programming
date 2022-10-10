@@ -1,6 +1,10 @@
 #ifndef OBJECT_LIKE_MACRO_H
 #define OBJECT_LIKE_MACRO_H
 
-int SIZE=1024;	/* declaring macro in a header file */
+#ifndef SIZE
+#define SIZE (1024)	/* declaring macro in a header file */
+#endif /* SIZE */
 
-#endif /*OBJECT_LIKE_MACRO_H*/
+typedef int make_compiler_happy;
+
+#endif /* OBJECT_LIKE_MACRO_H */
