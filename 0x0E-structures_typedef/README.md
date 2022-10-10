@@ -1,0 +1,1 @@
+This directory explores the concept of structures and typedef in c. structs are a type of data type and typedef is a way of creating an alias to a datatype within a program. Using typedefs promote greater portability of code and applications. Structs on the other hand can contain other data types and even a combination of data types like int, char, double etc.
