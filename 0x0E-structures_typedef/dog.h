@@ -16,6 +16,10 @@ struct dog
 	float age;
 	char *owner;
 };
+/* undefine NULL in order to define it again */
+#undef NULL
+/* define NULL keyword to be (nil) when printed as string */
+#define NULL (void *)"(nil)"
 /* function prototype for function that initializes struct */
 void init_dog(struct dog *d, char *name, float age, char *owner);
 /* function prototype for function that prints the information in the struct */

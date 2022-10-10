@@ -20,7 +20,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (dog == NULL)
 		return (NULL);
 	dog->name = name;	/* assign values to the struct */
-	(*dog).age = age;
+	dog->age = age;
 	dog->owner = owner;
 
 	return (dog);
