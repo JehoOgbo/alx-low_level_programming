@@ -9,5 +9,10 @@
  */
 void free_dog(dog_t *d)
 {
-	free(d);	/* use pointer that points to allocated space */
+	if (d)
+	{
+		free(d);	/* free pointer to allocated spaces */
+		free(d->name);
+		free(d->owner);
+	}
 }

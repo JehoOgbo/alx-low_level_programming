@@ -11,7 +11,10 @@
  */
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	d->name = name;	/*general idea is to dereference pointer*/
-	d->age = age;	/*alternative way to do this is (*d).age = age*/
-	d->owner = owner;
+	if (d)
+	{
+		d->name = name;	/*general idea is to dereference pointer*/
+		d->age = age;	/*alternative way to do this is (*d).age = age*/
+		d->owner = owner;
+	}
 }
