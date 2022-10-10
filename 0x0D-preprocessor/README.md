@@ -1,0 +1,1 @@
+This directory explores the concepts of macros: object-like, function-like and how to use them effectively in code in order to declare constants or even carry out operations. It also explains the theory and practice of include guard used in header files.
