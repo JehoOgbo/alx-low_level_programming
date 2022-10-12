@@ -1,0 +1,10 @@
+#include <stddef.h>
+#ifndef FUNCTION_POINTERS_H
+#define FUNCTION_POINTERS_H
+
+/* declaration for function to print a name using ptr to a function */
+void print_name(char *name, void (*f)(char *));
+/* prototype to execute func given as parameter on each element of array */
+void array_iterator(int *array, size_t size, void (*action)(int));
+
+#endif /* FUNCTION_POINTERS_H */
