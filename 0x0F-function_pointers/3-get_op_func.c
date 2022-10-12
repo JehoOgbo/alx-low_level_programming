@@ -4,8 +4,6 @@
 /**
  * get_op_func - selects correct function for specified operation
  * @s: input char for operation
- * @a: first number
- * @b: second number
  *
  * Return: pointer to operation corresponding to operator given as parameter
  */
