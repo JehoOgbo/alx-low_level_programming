@@ -9,6 +9,7 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
-	f(name);	/* pass string to ptr to function that prints */
+	if (name && f)	/* check if there is an input name and a function */
+		f(name);	/*pass string to ptr to function that prints*/
 
 }
