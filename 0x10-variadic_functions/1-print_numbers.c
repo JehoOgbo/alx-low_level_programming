@@ -1,6 +1,7 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
+/*#include <stddef.h>*/
 
 /**
  * print_numbers - print variable amount of numbers
@@ -14,16 +15,16 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	unsigned int i;
 	va_list num;
 
-	if (n)
+	if (n && separator != NULL)
 	{
 		va_start(num, n);
 
 		for (i = 0; i < (n - 1); i++)
 		{
-			if (separator)
-				printf("%d%s", va_arg(num, int), separator);
-			else
-				printf("%d", va_arg(num, int));
+			/*if (separator)*/
+			printf("%d%s", va_arg(num, int), separator);
+			/*else*/
+				/*printf("%d", va_arg(num, int));*/
 		}
 		printf("%d\n", va_arg(num, int));
 
