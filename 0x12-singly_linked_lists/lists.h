@@ -26,7 +26,11 @@ typedef struct list_s
 size_t print_list(const list_t *h);
 /* count number of elements of linked list return the amount */
 size_t list_len(const list_t *h);
-/* add elements to the beginning of the list */
+/* add elements to the beginning of the list; return address of element */
 list_t *add_node(list_t **head, const char *str);
+/* add elements to the end of the list; return address of element */
+list_t *add_node_end(list_t **head, const char *str);
+/* free a list_t list by calling free */
+void free_list(list_t *head);
 
 #endif /* LISTS_H*/
