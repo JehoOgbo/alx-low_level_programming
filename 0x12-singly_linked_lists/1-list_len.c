@@ -1,8 +1,8 @@
-#include "main.h"
+#include "lists.h"
 
 /**
  * list_len - finds the number of elements in a list
- * @h - pointer to nodal struct
+ * @h: pointer to nodal struct
  *
  * Return: number of elements in list
  */
