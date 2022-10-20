@@ -9,25 +9,28 @@
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	char *str1;
-	list_t *ptr = malloc(sizeof(list_t));
-	list_t *iterate;
+	size_t len;
+	list_t *ptr, *iterate;
 
-	if (!ptr)
+	ptr = malloc(sizeof(list_t));
+	if (ptr == NULL)
 		return (NULL);
-	str1 = strdup(str);	/* copy new the string literal */
-	if (!str1)
-		return (NULL);
-	ptr->str = str1;
-	ptr->len = strlen(str1);
+
+	ptr->str = strdup(str);	/* copy new the string literal */
+
+	for (len = 0; str[len]; len++)
+		;
+
+	ptr->len = len;
 	ptr->next = NULL;
 	/* get the last element of the list and set its pointer to new node */
-	iterate = *head;	/* set iterate to value of 1st node */
+	iterate = *head;
+	/* set iterate to value of 1st node */
 	if (iterate == NULL)
 		*head = ptr;
 	else
 	{
-		while (iterate->next)
+		while (iterate->next != NULL)
 		{
 			iterate = iterate->next;
 		}
