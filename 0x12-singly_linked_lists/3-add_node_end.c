@@ -10,7 +10,8 @@
 list_t *add_node_end(list_t **head, const char *str)
 {
 	char *str1;
-	list_t *ptr = malloc(sizeof(list_t)), *iterate;
+	list_t *ptr = malloc(sizeof(list_t));
+	list_t *iterate;
 
 	if (!ptr)
 		return (NULL);
@@ -22,9 +23,16 @@ list_t *add_node_end(list_t **head, const char *str)
 	ptr->next = NULL;
 	/* get the last element of the list and set its pointer to new node */
 	iterate = *head;	/* set iterate to value of 1st node */
-	while (iterate->next)
-		iterate = iterate->next;
-	iterate->next = ptr;	/* setting pointer to new node */
+	if (iterate == NULL)
+		*head = ptr;
+	else
+	{
+		while (iterate->next)
+		{
+			iterate = iterate->next;
+		}
+		iterate->next = ptr;	/* setting pointer to new node */
+	}
 
-	return (ptr);	/* return address of new element */
+	return (*head);	/* return address of new element */
 }

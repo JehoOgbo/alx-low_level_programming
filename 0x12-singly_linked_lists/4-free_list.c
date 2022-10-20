@@ -1,23 +1,19 @@
 #include "lists.h"
 
 /**
- * free_list - frees a list of type list_t (defined in header file)
- * @head: pointer to the first element in the list
+ * free_list - frees a list
+ * @head: head of the linked list
  *
  * Return: void
  */
 void free_list(list_t *head)
 {
-	/* declare variable to be used as iterator */
-	list_t *ptr;
+	list_t *current;
 
-	/* assign variable to head i.e pointer to first element */
-	ptr = head;
-	/* iterate through & free all the elements of the list */
-	while (ptr->next)	/* since they all had allocated memory */
+	while ((current = head) != NULL)
 	{
-		ptr = ptr->next;
-		free(ptr);
+		head = head->next;
+		free(current->str);
+		free(current);
 	}
-	free(head);
 }
