@@ -17,5 +17,5 @@ size_t print_listint(const listint_t *h)
 		i++;	/* increment value for amt of nodes each iteration */
 	}
 
-	return (i); 		/* return value holding number of nodes */
+	return (i);	/* return value holding number of nodes */
 }

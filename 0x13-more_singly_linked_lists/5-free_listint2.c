@@ -8,12 +8,11 @@
  */
 void free_listint2(listint_t **head)
 {
-	listint_t *freer, *i;	/* declare pointer to be used for freeing */
+	listint_t *freer;	/* declare pointer to be used for freeing */
 
-	i = *head;
-	while ((freer = i) != NULL)	/* do while unfreed elements exist */
+	while ((freer = *head) != NULL)	/* do while unfreed elements exist */
 	{
-		i = i->next;	/* set head to the next element */
+		*head = (*head)->next;	/* set head to the next element */
 		free(freer);	/* free the memory allocated to the element */
 	}
 	*head = NULL;

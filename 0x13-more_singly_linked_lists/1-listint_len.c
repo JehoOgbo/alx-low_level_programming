@@ -1,11 +1,10 @@
 #include "lists.h"
 
 /**
- * listint_len - finds number of elements in a
- * 		listint_t singly linked list.
+ * listint_len - finds number of elements in a listint_t singly linked list.
  * @h: pointer to the first element of the list
  *
- * Return: number of elements in the list 
+ * Return: number of elements in the list
  */
 size_t listint_len(const listint_t *h)
 {
@@ -13,8 +12,8 @@ size_t listint_len(const listint_t *h)
 
 	while (h)		/* executes while h is not null */
 	{
-		h = h->next;	/* sends h into the next node */
 		index++;	/* increment the index for every node */
+		h = h->next;	/* sends h into the next node */
 	}
 
 	return (index);		/* return number of elements */

@@ -12,7 +12,7 @@ void free_listint(listint_t *head)
 
 	while ((freeptr = head) != NULL)
 	{
-		head = head->next;	/* assign head to the next element of list */
+		head = head->next;	/* assign head to next element of list*/
 		free(freeptr);	/* free the memory for the node */
 	}
 }

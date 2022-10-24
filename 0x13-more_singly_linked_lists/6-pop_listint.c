@@ -5,7 +5,7 @@
  * @head: pointer to pointer to first element of the list
  *
  * Return: the data(int) contained in the head node or
- * 		0 in case of empty linked list
+ * 0 in case of empty linked list
  */
 int pop_listint(listint_t **head)
 {
