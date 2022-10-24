@@ -10,7 +10,7 @@ void free_listint2(listint_t **head)
 {
 	listint_t *freer;	/* declare pointer to be used for freeing */
 
-	if (*head != NULL)	/* only do if head is not yet set to NULL */
+	if (head != NULL)	/* only do if head is not yet set to NULL */
 	{
 		while ((freer = *head) != NULL)	/*while unfreed nodes exist*/
 		{
