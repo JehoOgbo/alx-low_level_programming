@@ -19,6 +19,19 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+/**
+ * struct listp_s - singly linked list
+ * @p: pointers to nodes
+ * @next: points to the next node
+ *
+ * Description: singly linked list of pointers
+ */
+typedef struct listp_s
+{
+	void *p;
+	struct listp_s *next;
+} listp_t;
+
 /* prints all the elements of a listint_t list. Return no. of nodes */
 size_t print_listint(const listint_t *h);
 /* finds number of elements int a listint_t list. Return no of elements */
@@ -45,5 +58,15 @@ int sum_listint(listint_t *head);
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n);
 /* deletes a node at a given position. Return 1 for success, -1 otherwise */
 int delete_nodeint_at_index(listint_t **head, unsigned int index);
+
+/* reverses a listint_t list. Return pointer to first node of reversed list*/
+listint_t *reverse_listint(listint_t **head);
+/* finds the loop in a list. Return pointer to the beginning of loop */
+listint_t *find_listint_loop(listint_t *head);
+
+/* prints a listint_t list in safe mode */
+size_t print_listint_safe(const listint_t *head);
+/* frees a listint_t in safe mode */
+size_t free_listint_safe(listint_t **h);
 
 #endif /*LISTS_H*/
