@@ -19,6 +19,5 @@ int sum_listint(listint_t *head)
 		sum += ptr->n;	/* increase sum by each number int the list */
 		ptr = ptr->next;	/* go to next element */
 	}
-	
 	return (sum);	/* return the total sum */
 }

@@ -8,7 +8,7 @@
  */
 size_t listint_len(const listint_t *h)
 {
-	unsigned int index;	/* declare variable to hold index of nodes */
+	unsigned int index = 0;	/* declare variable to hold index of nodes */
 
 	while (h)		/* executes while h is not null */
 	{
