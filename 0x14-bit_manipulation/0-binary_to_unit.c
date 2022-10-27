@@ -59,7 +59,7 @@ unsigned int binary_to_unit(const char *b)
 	c = strdup(b);
 	while (c[i])
 	{
-		if (c[i] != '0' || c[i] != '1')
+		if (c[i] != '0' && c[i] != '1')
 			return (0);	/* return 0 if other chars present */
 		i++;
 	}
