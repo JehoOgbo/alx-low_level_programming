@@ -42,19 +42,14 @@ unsigned int find_no_digit(unsigned long int num)
 }
 
 /**
- * get_bit - gets the value of a bit at a given index
- * @n: number whose bits are to be checked
- * @index: index of the bit to be checked
+ * set_bit - sets the value of a bit to 1 at a given index
+ * @n: number whose bits are to be set
+ * @index: index of the bit to be set
  *
  * Return: value of bit at index or -1 if an error occurs
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	/**unsigned int check_index;
-f
-	check_index = find_no_digit(*n);
-	if (index > check_index)
-		return (-1);*/
 	*n |= (1 << index);
 	return (1);
 }

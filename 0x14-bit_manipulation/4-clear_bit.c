@@ -42,9 +42,9 @@ unsigned int find_no_digit(unsigned long int num)
 }
 
 /**
- * get_bit - gets the value of a bit at a given index
- * @n: number whose bits are to be checked
- * @index: index of the bit to be checked
+ * clear_bit - clears the value of a bit at a given index
+ * @n: number whose bit is to be cleared
+ * @index: index of the bit to be cleared
  *
  * Return: value of bit at index or -1 if an error occurs
  */
