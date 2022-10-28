@@ -51,7 +51,7 @@ unsigned int ctoi(char c)
  * Return: converted number of 0 if there is one or more chars
  * in the string that is not 0 or 1.
  */
-unsigned int binary_to_unit(const char *b)
+unsigned int binary_to_uint(const char *b)
 {
 	char *c;
 	unsigned int size, i = 0, a, sum = 0;
