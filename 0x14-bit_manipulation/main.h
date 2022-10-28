@@ -6,8 +6,10 @@
 #include <string.h>
 #include <stdio.h>
 
+/* prototype for _putchar function */
+int _putchar(char c);
 /*function to convert binary to unsigned int. Returns converted number*/
-unsigned int binary_to_unit(const char *b);
+unsigned int binary_to_uint(const char *b);
 /* function to print binary from decimal using bitwise operators */
 void print_binary(unsigned long int n);
 /* function to get value of a bit at given index. Return 1, 0 or -1 */
