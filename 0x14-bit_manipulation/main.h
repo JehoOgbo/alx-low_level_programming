@@ -20,5 +20,7 @@ int set_bit(unsigned long int *n, unsigned int index);
 int clear_bit(unsigned long int *n, unsigned int index);
 /* function to get amount of bits to be flipped to get a number from another */
 unsigned int flip_bits(unsigned long int n, unsigned long int m);
+/* gets the endianness of the machine */
+int get_endianness(void);
 
 #endif /*MAIN_H*/
