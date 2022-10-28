@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 /**
  * pow - function that raises a number to a power
