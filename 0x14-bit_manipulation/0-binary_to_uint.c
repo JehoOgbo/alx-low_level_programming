@@ -17,34 +17,6 @@ unsigned int power(unsigned int num, unsigned int ntim)
 }
 
 /**
- * _strlen - finds the length of a string
- * @c: char string to be entered
- *
- * Return: strlen
- */
-unsigned int _strlen(char *c)
-{
-	unsigned int i = 0;
-
-	while (c[i])
-		i++;
-	return (i);
-}
-
-/**
- * ctoi - converts a single character to an integer
- * @c: character to be converted
- *
- * Return: the integer
- */
-unsigned int ctoi(char c)
-{
-	if (c == '0')
-		return (0);
-	return (1);
-}
-
-/**
  * binary_to_unit - converts a binary number to an unsigned int
  *
  * @b: pointer to a string of 0's and 1's.
@@ -65,11 +37,16 @@ unsigned int binary_to_uint(const char *b)
 			return (0);	/* return 0 if other chars present */
 		i++;
 	}
-	size = _strlen(c) - 1;
+	for (size = 0; c[size]; size++)
+		;
+	size--;
 	i = 0;
 	while (c[i])
 	{
-		a = ctoi(c[i]);
+		if (c[i] == '1')
+			a = 1;
+		else
+			a = 0;
 		sum += a * power(2, (size - i));
 		i++;
 	}
