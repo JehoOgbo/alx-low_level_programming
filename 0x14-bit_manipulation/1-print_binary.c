@@ -10,7 +10,7 @@
  */
 int divide(unsigned long int num, unsigned int div)
 {
-	int dividend = 0;
+	unsigned long int dividend = 0;
 
 	while (num >= div)
 	{
@@ -48,7 +48,8 @@ unsigned int find_no_digit(unsigned long int num)
  */
 void print_binary(unsigned long int n)
 {
-	int i, count;
+	int i;
+	unsigned int count;
 
 	count = find_no_digit(n);
 	for (i = count; i >= 0; i--)

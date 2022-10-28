@@ -9,7 +9,7 @@
  */
 int divide(unsigned long int num, unsigned int div)
 {
-	unsigned int dividend = 0;
+	unsigned long int dividend = 0;
 
 	while (num >= div)
 	{
@@ -30,7 +30,7 @@ int divide(unsigned long int num, unsigned int div)
  */
 unsigned int find_no_digit(unsigned long int num)
 {
-	unsigned int count = 0;
+	unsigned long int count = 0;
 
 	while (num >= 2)
 	{
