@@ -24,8 +24,8 @@ unsigned int _strlen(char *c)
 {
 	unsigned int i = 0;
 
-	while (c[i++])
-		;
+	while (c[i])
+		i++;
 	return (i);
 }
 
@@ -56,7 +56,7 @@ unsigned int binary_to_unit(const char *b)
 
 	if (b == NULL)	/* return 0 if b is empty */
 		return (0);
-	c = strdup(b);
+	c = strdup(b);	/* copy the string */
 	while (c[i])
 	{
 		if (c[i] != '0' && c[i] != '1')
@@ -65,11 +65,12 @@ unsigned int binary_to_unit(const char *b)
 	}
 	size = _strlen(c) - 1;
 	i = 0;
-	do
+	while (c[i])
 	{
 		a = ctoi(c[i]);
 		sum += a * power(2, (size - i));
-	} while (c[i++]);
+		i++;
+	}
 
 	return (sum);
 }
