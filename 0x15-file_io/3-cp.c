@@ -1,85 +1,72 @@
+#include "main.h"
 #include <stdio.h>
-#include <sys/types.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
 
 /**
- * errors - outputs error messages concerned with files
- * @file_from: file which is to be copied
- * @file_to: file which is to be pasted to
- * @argv: arguments vector
+ * error_file - checks if files can be opened.
+ * @file_from: file_from.
+ * @file_to: file_to.
+ * @argv: arguments vector.
+ * Return: no return.
  */
-void errors(int file_from, int file_to, char *argv[])
+void error_file(int file_from, int file_to, char *argv[])
 {
 	if (file_from == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
-			argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	if (file_to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Cant write to %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 }
 
 /**
- * copy - copy contents of 1 file into another
- * @argv: argument vectors
- *
- * Return: void
+ * main - check the code for Holberton School students.
+ * @argc: number of arguments.
+ * @argv: arguments vector.
+ * Return: Always 0.
  */
-void copy(char *argv[])
+int main(int argc, char *argv[])
 {
-	int fd, w_fd, count, checker, bytes;
-	char buffer[1024];
+	int file_from, file_to, err_close;
+	ssize_t nchars, nwr;
+	char buf[1024];
 
-	fd = open(argv[1], O_RDONLY);
-	w_fd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
-
-	errors(fd, w_fd, argv);
-
-	bytes = 1024;
-	while (bytes == 1024)
-	{
-		bytes = read(fd, buffer, sizeof(buffer));
-		if (bytes == -1)
-			errors(-1, 0, argv);
-		count = write(w_fd, buffer, bytes);
-		if (count == -1)
-			errors(0, -1, argv);
-	}
-	count = close(fd);
-	if (count == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-		exit(100);
-	}
-	checker = close(w_fd);
-	if (checker == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", w_fd);
-		exit(100);
-	}
-}
-/**
- * main - calls other functions
- * @argc: command line argument count
- * @argv: argument vector
- *
- * Return: 0 success
- */
-int main(int argc, char **argv)
-{
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
 		exit(97);
 	}
 
-	copy(argv);
+	file_from = open(argv[1], O_RDONLY);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	error_file(file_from, file_to, argv);
+
+	nchars = 1024;
+	while (nchars == 1024)
+	{
+		nchars = read(file_from, buf, 1024);
+		if (nchars == -1)
+			error_file(-1, 0, argv);
+		nwr = write(file_to, buf, nchars);
+		if (nwr == -1)
+			error_file(0, -1, argv);
+	}
+
+	err_close = close(file_from);
+	if (err_close == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		exit(100);
+	}
+
+	err_close = close(file_to);
+	if (err_close == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		exit(100);
+	}
 	return (0);
 }
