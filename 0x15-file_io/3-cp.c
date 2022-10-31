@@ -28,8 +28,6 @@ void errors(int file_from, int file_to, char *argv[])
 
 /**
  * copy - copy contents of 1 file into another
- * @file1: first file name
- * @file2: name of file to be copied to
  * @argv: argument vectors
  *
  * Return: void
@@ -40,7 +38,7 @@ void copy(char *argv[])
 	char buffer[1024];
 
 	fd = open(argv[1], O_RDONLY);
-	w_fd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	w_fd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 
 	errors(fd, w_fd, argv);
 
