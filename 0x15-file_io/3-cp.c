@@ -6,46 +6,64 @@
 #include <stdlib.h>
 
 /**
+ * errors - outputs error messages concerned with files
+ * @file_from: file which is to be copied
+ * @file_to: file which is to be pasted to
+ * @argv: arguments vector
+ */
+void errors(int file_from, int file_to, char *argv[])
+{
+	if (file_from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
+			argv[1]);
+		exit(98);
+	}
+	if (file_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Cant write to %s\n", argv[1]);
+		exit(99);
+	}
+}
+
+/**
  * copy - copy contents of 1 file into another
  * @file1: first file name
  * @file2: name of file to be copied to
+ * @argv: argument vectors
  *
  * Return: void
  */
-void copy(char *file1, char *file2)
+void copy(char *argv[])
 {
 	int fd, w_fd, count, checker, bytes;
-	char *buffer[1024];
+	char buffer[1024];
 
-	fd = open(file1, O_RDONLY);
-	w_fd = open(file2, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fd == -1 || w_fd == -1)
+	fd = open(argv[1], O_RDONLY);
+	w_fd = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+
+	errors(fd, w_fd, argv);
+
+	bytes = 1024;
+	while (bytes == 1024)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read");
-		dprintf(STDERR_FILENO, "from file %s\n", file1);
-		exit(98);
-	}
-	if (w_fd == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write");
-		dprintf(STDERR_FILENO, "to %s\n", file2);
-		exit(99);
-	}
-	while ((bytes = read(fd, buffer, sizeof(buffer)) > 0))
-	{
-		count = write(w_fd, buffer, sizeof(buffer));
+		bytes = read(fd, buffer, sizeof(buffer));
+		if (bytes == -1)
+			errors(-1, 0, argv);
+		count = write(w_fd, buffer, bytes);
 		if (count == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't");
-			dprintf(STDERR_FILENO, "write to %s\n", file2);
-			exit(99);
-		}
+			errors(0, -1, argv);
 	}
 	count = close(fd);
-	checker = close(w_fd);
-	if (count == -1 || checker == -1)
+	if (count == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
+	checker = close(w_fd);
+	if (checker == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", w_fd);
 		exit(100);
 	}
 }
@@ -64,6 +82,6 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 
-	copy(argv[1], argv[2]);
+	copy(argv);
 	return (0);
 }
