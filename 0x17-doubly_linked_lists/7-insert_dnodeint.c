@@ -1,77 +1,52 @@
 #include "lists.h"
 
-
-/**
- * dlistint_len - returns the number of elements in a dlistint_t list
- * @h: head of doubly linked list
- *
- * Return: number of nodes
- */
-
-size_t dlistint_len(const dlistint_t *h)
-{
-	int count = 0;
-
-	while (h)
-	{
-		count++;
-		h = h->next;
-	}
-	return (count);
-}
-
-
-
 /**
  * insert_dnodeint_at_index - inserts a new node at a given position
- * @h: head of linked list
- * @idx: index
- * @n: integer value of node
  *
- * Return: address of new node, return NULL if fails
+ * @h: head of the list
+ * @idx: index of the new node
+ * @n: value of the new node
+ * Return: the address of the new node, or NULL if it failed
  */
-
-
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new, *temp;
-	size_t length;
+	dlistint_t *new, *current, *previous, *head = *h;
 	unsigned int i = 0;
 
-	if (h == NULL)
-		return (NULL);
-	if (idx == 0)
-		return (add_dnodeint(h, n));
-
-	length = dlistint_len(*h);
-	if (idx == length - 1)
-		return (add_dnodeint_end(h, n));
-
+	if (head == NULL)
+	{	/* special case if head is NULL and idx is 0 */
+		if (idx == 0)
+			return (add_dnodeint(h, n));
+		return (NULL);	/* index out of range */
+	}
 	new = malloc(sizeof(dlistint_t));
 	if (new == NULL)
-		return (NULL);
+		return (NULL);	/* malloc failure */
 	new->n = n;
-	if (*h == NULL)
+	while (head->next && i != idx)
 	{
-		new->prev = NULL;
-		new->next = NULL;
-		*h = new;
+		i++;
+		head = head->next;
+	}
+	if (i == idx)
+	{	/* add node to middle or beginning of list */
+		current = head;
+		previous = head->prev;
+		new->prev = previous;
+		new->next = current;
+		if (previous)	/* case for idx == 0 */
+			previous->next = new;
+		current->prev = new;
+		if (idx == 0)
+			*h = new;
 		return (new);
 	}
-	temp = *h;
-	while (temp)
-	{
-		if (i == idx)
-		{
-			new->next = temp;
-			new->prev = temp->prev;
-			temp->prev->next = new;
-			temp->prev = new;
-			return (new);
-		}
-		temp = temp->next;
-		i++;
+	if (idx == ++i)
+	{	/* add node to the end of the list */
+		new->next = NULL;
+		new->prev = head;
+		head->next = new;
+		return (new);
 	}
-	free(new);
-	return (NULL);
+	return (NULL);	/* index out of range */
 }
