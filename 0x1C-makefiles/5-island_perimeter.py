@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
+
 """ calculate island perimeters"""
+
+
 def island_perimeter(grid):
     """ find and return the perimeter of an island.
     The grid represents water by 0 and land by 1.
