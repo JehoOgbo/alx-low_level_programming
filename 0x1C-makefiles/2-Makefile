@@ -1,0 +1,10 @@
+CC = gcc
+SRC = main.c school.c
+.PHONY: all make_school_executable
+OBJ = $(SRC:.c=.o)
+NAME = school
+
+all: make_school_executable
+
+make_school_executable:
+	${CC} ${OBJ} -o $(NAME)
