@@ -1,3 +1,6 @@
-all: make_schoo_executable
+.PHONY: all make_school_executable
+
+all: make_school_executable
+
 make_school_executable:
 	gcc main.c school.c -o school
