@@ -1,2 +1,3 @@
+all: make_schoo_executable
 make_school_executable:
 	gcc main.c school.c -o school
