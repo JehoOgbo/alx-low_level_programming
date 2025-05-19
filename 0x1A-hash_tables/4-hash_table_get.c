@@ -1,6 +1,6 @@
 #include "hash_tables.h"
 #include <stdlib.h>
-
+#include <string.h>
 /**
  * hash_table_get - retrieves a value associated with a key
  *
@@ -23,7 +23,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	check = ht->array[index];
 	while (check)
 	{
-		if (check->key == key)
+		if (strcmp(check->key, key) == 0)
 		{
 			return (check->value);
 		}
