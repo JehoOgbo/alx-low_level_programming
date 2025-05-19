@@ -20,12 +20,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (key == NULL || strcmp(key, "") == 0 || ht == NULL)
 		return (0);
-
 	index = key_index((const unsigned char *)key, ht->size);
 	new = malloc(sizeof(hash_node_t));
 	if (new == NULL)
 		return (0);
-
 	new->key = (char *)strdup(key);
 	new->value = (char *)strdup(value);
 	new->next = NULL;
@@ -50,11 +48,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		}
 		head = head->next;
 	}
-
 	/* incase of collision, add new node at the beginning of the list */
 	head = ht->array[index];
 	ht->array[index] = new;
 	ht->array[index]->next = head;
-
 	return (1);
 }
