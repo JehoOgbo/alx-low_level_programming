@@ -1,36 +1,57 @@
 #include "hash_tables.h"
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * hast_table_set - adds an element to the hash table
- * @ht: the hash table you want to add or update key value pair to
- * @key: the key to be added
- * @value: the value to be associated with the key
+ * hash_table_set - adds an element to the hash table
+ * incase of collisions create a linked list
  *
- * Return: 1 if success and 0 otherwise
- * In case of collision, add a new node at the beginning of a list
+ * @ht: the hash table you want to add or update to
+ * @key: the key to be used for the update. Cannot be an empty string
+ * @value: the value to be updated to the key. can be empty
+ *
+ * Return: 1 on success, 0 otherwise
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *item, *current;
+	hash_node_t *new;
 	unsigned long int index;
+	hash_node_t *head;
 
-	/* create a new hash table item */
-	/* *first create space for the item itself, key and value */
-	item = (hash_node_t *) malloc(sizeof(hash_node_t));
-	item->key = (char *) malloc(strlen(key) + 1);
-	item->value = (char *) malloc(strlen(value) + 1);
-	/* copy the key and value into the allocated space */
-	strcpy(item->key, key);
-	strcpy(item->value, value);
+	if (key == NULL || strcmp(key, "") == 0)
+		return (0);
 
-	index = key_index((const unsigned char *) key, ht->size);
+	index = key_index((const unsigned char *)key, ht->size);
+	new = malloc(sizeof(hash_node_t));
+	if (new == NULL)
+		return (0);
 
-	current = ht->item[index];
-	if (current_item == NULL)
+	new->key = (char *)strdup(key);
+	new->value = (char *)strdup(value);
+	new->next = NULL;
+
+	if (ht->array[index] == NULL)
 	{
-		/* key does not exist */
-		if (index == table->size)
-			return (NULL);
+		ht->array[index] = new;
+		return (1);
 	}
-	table->item[index] = item;
+	/* incase the key already exists, update the value */
+	head = ht->array[index];
+	while (head)
+	{
+		if (strcmp(new->key, head->key) == 0)
+		{
+			head->value = new->value;
+			free(new);
+			return (1);
+		}
+		head = head->next;
+	}
+
+	/* incase of collision, add new node at the beginning of the list */
+	head = ht->array[index];
+	ht->array[index] = new;
+	ht->array[index]->next = head;
+
+	return (1);
 }
